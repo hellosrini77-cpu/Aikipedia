@@ -1,35 +1,14 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIkipedia — AI/ML Flashcards</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>AIkipedia - AI/ML Flashcards for Interview Prep</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
-            --accent-primary: #00f5d4;
-            --accent-secondary: #7b61ff;
-            --accent-tertiary: #ff6b6b;
-            --text-primary: #f0f0f5;
-            --text-secondary: #8888a0;
-            --text-muted: #555566;
-            --border-color: #2a2a3a;
-            --success: #00f5d4;
-            --warning: #ffd93d;
-            --error: #ff6b6b;
-            --gradient-1: linear-gradient(135deg, #00f5d4 0%, #7b61ff 100%);
-            --gradient-2: linear-gradient(135deg, #7b61ff 0%, #ff6b6b 100%);
-            --shadow-glow: 0 0 40px rgba(0, 245, 212, 0.15);
-            --font-display: 'Space Mono', monospace;
-            --font-body: 'Sora', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -37,80 +16,40 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(0, 245, 212, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 245, 212, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow-1 {
-            top: -200px;
-            right: -200px;
-            background: var(--accent-secondary);
-        }
-
-        .bg-glow-2 {
-            bottom: -200px;
-            left: -200px;
-            background: var(--accent-primary);
-            opacity: 0.2;
+            color: #e4e4e4;
         }
 
         /* Header */
         header {
-            position: relative;
-            z-index: 10;
-            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-1);
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
         }
 
         .logo span {
-            color: var(--text-secondary);
-            -webkit-text-fill-color: var(--text-secondary);
+            font-size: 0.9rem;
+            color: #888;
+            display: block;
+            font-weight: normal;
         }
 
-        .header-right {
+        .user-section {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -119,74 +58,53 @@
         .user-info {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-secondary);
-            border-radius: 100px;
-            border: 1px solid var(--border-color);
-        }
-
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-primary);
-        }
-
-        .user-name {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .btn {
-            font-family: var(--font-body);
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
             gap: 0.5rem;
         }
 
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #00d4ff;
+        }
+
+        .user-name {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
         .btn-primary {
-            background: var(--gradient-1);
-            color: var(--bg-primary);
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
         }
 
         .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e4;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-secondary:hover {
-            border-color: var(--accent-primary);
-            background: rgba(0, 245, 212, 0.1);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-        }
-
-        .btn-ghost:hover {
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Main Content */
         main {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -194,193 +112,164 @@
         /* Stats Bar */
         .stats-bar {
             display: flex;
-            gap: 1.5rem;
+            justify-content: center;
+            gap: 2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
-        .stat-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+        .stat {
+            text-align: center;
             padding: 1rem 1.5rem;
-            min-width: 140px;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .stat-value {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-primary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00d4ff;
         }
 
-        /* Category Filters */
-        .category-filters {
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* Controls */
+        .controls {
             display: flex;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 1rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
-        .category-btn {
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
+        .category-select {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e4;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
 
-        .category-btn:hover {
-            border-color: var(--accent-primary);
-            color: var(--text-primary);
+        .category-select option {
+            background: #1a1a2e;
         }
 
-        .category-btn.active {
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            border-color: var(--accent-primary);
-        }
-
-        /* Flashcard Container */
-        .flashcard-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .flashcard-wrapper {
+        /* Flashcard */
+        .card-container {
             perspective: 1000px;
-            width: 100%;
-            max-width: 600px;
+            margin-bottom: 2rem;
         }
 
         .flashcard {
-            position: relative;
             width: 100%;
-            height: 350px;
-            cursor: pointer;
+            height: 300px;
+            position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.6s ease;
+            cursor: pointer;
         }
 
         .flashcard.flipped {
             transform: rotateY(180deg);
         }
 
-        .flashcard-face {
+        .card-face {
             position: absolute;
-            inset: 0;
+            width: 100%;
+            height: 100%;
             backface-visibility: hidden;
             border-radius: 20px;
-            padding: 2.5rem;
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--border-color);
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
         }
 
-        .flashcard-front {
-            background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+        .card-front {
+            background: linear-gradient(145deg, #2a2a4a, #1a1a3a);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .flashcard-back {
-            background: linear-gradient(145deg, #1e1e2a 0%, var(--bg-card) 100%);
+        .card-back {
+            background: linear-gradient(145deg, #1a3a4a, #0a2a3a);
+            border: 1px solid rgba(123, 44, 191, 0.3);
             transform: rotateY(180deg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .card-category {
-            font-family: var(--font-display);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-secondary);
-            margin-bottom: 1rem;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 212, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #00d4ff;
         }
 
         .card-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.8rem;
+            color: #666;
         }
 
         .card-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             line-height: 1.6;
         }
 
-        .flashcard-front .card-content {
+        .card-front .card-content {
+            color: #fff;
             font-weight: 500;
         }
 
-        .flashcard-back .card-content {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
+        .card-back .card-content {
+            color: #e4e4e4;
         }
 
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .card-hint {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .card-number {
-            font-family: var(--font-display);
+        .flip-hint {
+            position: absolute;
+            bottom: 1rem;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: #666;
         }
 
-        /* Navigation Controls */
-        .nav-controls {
+        /* Navigation */
+        .card-nav {
             display: flex;
+            justify-content: center;
             gap: 1rem;
-            align-items: center;
+            margin-bottom: 2rem;
         }
 
         .nav-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e4;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
+            transition: all 0.3s ease;
         }
 
         .nav-btn:hover:not(:disabled) {
-            border-color: var(--accent-primary);
-            background: rgba(0, 245, 212, 0.1);
-            transform: scale(1.05);
+            background: rgba(0, 212, 255, 0.3);
+            transform: scale(1.1);
         }
 
         .nav-btn:disabled {
@@ -388,818 +277,633 @@
             cursor: not-allowed;
         }
 
-        .progress-indicator {
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            min-width: 80px;
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
             text-align: center;
+            margin-top: 0.5rem;
+            color: #888;
+            font-size: 0.9rem;
         }
 
-        /* Confidence Buttons */
-        .confidence-btns {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .confidence-btn {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .confidence-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .confidence-btn.easy {
-            border-color: var(--success);
-            color: var(--success);
-        }
-
-        .confidence-btn.easy:hover {
-            background: rgba(0, 245, 212, 0.15);
-        }
-
-        .confidence-btn.medium {
-            border-color: var(--warning);
-            color: var(--warning);
-        }
-
-        .confidence-btn.medium:hover {
-            background: rgba(255, 217, 61, 0.15);
-        }
-
-        .confidence-btn.hard {
-            border-color: var(--error);
-            color: var(--error);
-        }
-
-        .confidence-btn.hard:hover {
-            background: rgba(255, 107, 107, 0.15);
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
+        /* Contribute Section */
+        .contribute-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .modal-overlay.active {
+        .contribute-section h2 {
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .contribute-form {
             display: flex;
-        }
-
-        .modal {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-        }
-
-        .modal-close {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 1.25rem;
-            transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--error);
-            color: white;
-        }
-
-        .modal-body {
-            padding: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .form-group {
-            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .form-label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
+        .form-group label {
+            color: #888;
+            font-size: 0.9rem;
         }
 
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e4;
+            font-size: 1rem;
+            font-family: inherit;
         }
 
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(0, 245, 212, 0.1);
-        }
-
-        .form-textarea {
+        .form-group textarea {
             min-height: 100px;
             resize: vertical;
         }
 
-        .form-select {
-            cursor: pointer;
+        .form-group select option {
+            background: #1a1a2e;
         }
 
-        /* Empty State */
-        .empty-state {
+        .submit-status {
+            padding: 1rem;
+            border-radius: 8px;
             text-align: center;
-            padding: 4rem 2rem;
+            display: none;
         }
 
-        .empty-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        .submit-status.success {
+            background: rgba(0, 255, 100, 0.1);
+            color: #00ff64;
+            display: block;
         }
 
-        .empty-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .submit-status.error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff6464;
+            display: block;
         }
 
-        .empty-text {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+        /* Login Prompt */
+        .login-prompt {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
         }
 
         /* Loading State */
         .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
             padding: 4rem;
+            color: #888;
         }
 
         .spinner {
             width: 40px;
             height: 40px;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-primary);
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #00d4ff;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Toast Notifications */
-        .toast-container {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 200;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem;
+            color: #888;
         }
 
-        .toast {
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            animation: slideIn 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .empty-state h3 {
+            margin-bottom: 1rem;
+            color: #aaa;
         }
 
-        .toast.success {
-            border-color: var(--success);
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.8rem;
         }
 
-        .toast.error {
-            border-color: var(--error);
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             header {
-                padding: 1rem;
                 flex-direction: column;
                 gap: 1rem;
             }
 
-            .header-right {
-                width: 100%;
-                justify-content: center;
-            }
-
-            main {
-                padding: 1rem;
-            }
-
             .stats-bar {
-                justify-content: center;
+                gap: 1rem;
+            }
+
+            .stat {
+                padding: 0.8rem 1rem;
             }
 
             .flashcard {
-                height: 300px;
+                height: 250px;
             }
 
             .card-content {
                 font-size: 1.1rem;
             }
-
-            .confidence-btns {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Background Effects -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-
-    <!-- Header -->
     <header>
-        <div class="logo">AIkipedia<span>.cards</span></div>
-        <div class="header-right">
-            <div id="userSection"></div>
+        <div class="logo">
+            AIkipedia
+            <span>Community-Driven AI/ML Flashcards</span>
+        </div>
+        <div class="user-section">
+            <div id="userInfo" class="user-info" style="display: none;">
+                <img id="userAvatar" class="user-avatar" src="" alt="User">
+                <span id="userName" class="user-name"></span>
+                <button onclick="signOut()" class="btn btn-secondary">Sign Out</button>
+            </div>
+            <div id="googleSignIn"></div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Stats Bar -->
         <div class="stats-bar">
-            <div class="stat-card">
-                <div class="stat-label">Total Cards</div>
+            <div class="stat">
                 <div class="stat-value" id="totalCards">0</div>
+                <div class="stat-label">Total Cards</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">Studied</div>
+            <div class="stat">
                 <div class="stat-value" id="studiedCards">0</div>
+                <div class="stat-label">Studied Today</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">Mastered</div>
+            <div class="stat">
                 <div class="stat-value" id="masteredCards">0</div>
+                <div class="stat-label">Mastered</div>
             </div>
         </div>
 
-        <!-- Category Filters -->
-        <div class="category-filters" id="categoryFilters">
-            <button class="category-btn active" data-category="all">All</button>
+        <div class="controls">
+            <select id="categoryFilter" class="category-select" onchange="filterByCategory()">
+                <option value="all">All Categories</option>
+            </select>
+            <button onclick="shuffleCards()" class="btn btn-secondary">🔀 Shuffle</button>
+            <button onclick="resetProgress()" class="btn btn-secondary">↺ Reset Progress</button>
         </div>
 
-        <!-- Flashcard Area -->
-        <div id="cardArea">
-            <div class="loading">
-                <div class="spinner"></div>
+        <div id="loadingState" class="loading">
+            <div class="spinner"></div>
+            <p>Loading flashcards...</p>
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h3>No cards found</h3>
+            <p>Try selecting a different category or contribute the first card!</p>
+        </div>
+
+        <div id="cardSection" style="display: none;">
+            <div class="card-container">
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="card-face card-front">
+                        <span class="card-category" id="cardCategory">Category</span>
+                        <span class="card-label">Question</span>
+                        <div class="card-content" id="cardQuestion">Loading...</div>
+                        <span class="flip-hint">Click to reveal answer</span>
+                    </div>
+                    <div class="card-face card-back">
+                        <span class="card-category" id="cardCategoryBack">Category</span>
+                        <span class="card-label">Answer</span>
+                        <div class="card-content" id="cardAnswer">Loading...</div>
+                        <span class="flip-hint">Click to see question</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-nav">
+                <button class="nav-btn" id="prevBtn" onclick="prevCard()">←</button>
+                <button class="nav-btn" onclick="markMastered()">✓</button>
+                <button class="nav-btn" id="nextBtn" onclick="nextCard()">→</button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Card 1 of 0</div>
+            </div>
+        </div>
+
+        <div class="contribute-section">
+            <h2>📝 Contribute a Card</h2>
+            <div id="contributeContent">
+                <div class="login-prompt" id="loginPrompt">
+                    <p>Sign in with Google to contribute flashcards to the community!</p>
+                </div>
+                <form id="contributeForm" class="contribute-form" style="display: none;" onsubmit="submitCard(event)">
+                    <div class="form-group">
+                        <label for="newCategory">Category</label>
+                        <select id="newCategory" required>
+                            <option value="">Select a category...</option>
+                            <option value="ML Fundamentals">ML Fundamentals</option>
+                            <option value="Deep Learning">Deep Learning</option>
+                            <option value="Transformers & Attention">Transformers & Attention</option>
+                            <option value="LLMs & GenAI">LLMs & GenAI</option>
+                            <option value="AI Agents">AI Agents</option>
+                            <option value="MLOps">MLOps</option>
+                            <option value="AI Ethics & Safety">AI Ethics & Safety</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newQuestion">Question</label>
+                        <textarea id="newQuestion" placeholder="Enter your question..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="newAnswer">Answer</label>
+                        <textarea id="newAnswer" placeholder="Enter the answer..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit for Review</button>
+                    <div id="submitStatus" class="submit-status"></div>
+                </form>
             </div>
         </div>
     </main>
 
-    <!-- Contribute Modal -->
-    <div class="modal-overlay" id="contributeModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 class="modal-title">+ Contribute a Card</h2>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="contributeForm">
-                    <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <select class="form-select" id="formCategory" required>
-                            <option value="">Select a category...</option>
-                            <option value="Fundamentals">Fundamentals</option>
-                            <option value="Deep Learning">Deep Learning</option>
-                            <option value="NLP">NLP</option>
-                            <option value="Computer Vision">Computer Vision</option>
-                            <option value="Reinfortic Learning">Reinforcement Learning</option>
-                            <option value="MLOps">MLOps</option>
-                            <option value="LLMs">LLMs</option>
-                            <option value="AI Agents">AI Agents</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Question</label>
-                        <textarea class="form-textarea" id="formQuestion" placeholder="Enter your question..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Answer</label>
-                        <textarea class="form-textarea" id="formAnswer" placeholder="Enter the answer..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        Submit for Review
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
+    <footer>
+        <p>Built with ❤️ by <a href="https://github.com/hellosrini77-cpu" target="_blank">Srini</a> | 
+        Contribute on <a href="https://github.com/hellosrini77-cpu/Aikipedia" target="_blank">GitHub</a></p>
+    </footer>
 
     <script>
-        // ============================================================================
-        // CONFIGURATION - ALL YOUR CREDENTIALS ARE HERE
-        // ============================================================================
+        // Configuration - Your credentials
         const CONFIG = {
             GOOGLE_CLIENT_ID: '577327560802-fpv89k3okp55hn1qsuirdafemnuicupf.apps.googleusercontent.com',
-            GOOGLE_SHEET_ID: '1FjnMq0aqyj7Xv2jYUBnwT7P5HVg1O5Tdc9C1EK73xHg',
-            APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwQtLPiAoATNB2GNWUtq3ZOUBiSuWM6R1Bv0g3mhWrEcV8od24TZs1xnV9fucEAEV_2/exec'
+            APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyv8BbsRn3MDP6xucXtefiNPDubXzg8AurC4nALp56vhoMlBidWBnmLMSLGiq5xGF13/exec'
         };
 
-        // ============================================================================
-        // STATE
-        // ============================================================================
-        let currentUser = null;
+        // State
         let cards = [];
         let filteredCards = [];
         let currentIndex = 0;
         let isFlipped = false;
-        let progress = JSON.parse(localStorage.getItem('aikipedia_progress') || '{}');
-        let categories = new Set(['all']);
+        let currentUser = null;
+        let studiedToday = new Set();
+        let masteredCards = new Set();
 
-        // ============================================================================
-        // GOOGLE SIGN-IN
-        // ============================================================================
+        // Load progress from localStorage
+        function loadProgress() {
+            const today = new Date().toDateString();
+            const savedDate = localStorage.getItem('aikipedia_date');
+            
+            if (savedDate === today) {
+                const studied = localStorage.getItem('aikipedia_studied');
+                if (studied) studiedToday = new Set(JSON.parse(studied));
+            } else {
+                localStorage.setItem('aikipedia_date', today);
+                localStorage.setItem('aikipedia_studied', '[]');
+            }
+
+            const mastered = localStorage.getItem('aikipedia_mastered');
+            if (mastered) masteredCards = new Set(JSON.parse(mastered));
+
+            updateStats();
+        }
+
+        // Save progress
+        function saveProgress() {
+            localStorage.setItem('aikipedia_studied', JSON.stringify([...studiedToday]));
+            localStorage.setItem('aikipedia_mastered', JSON.stringify([...masteredCards]));
+        }
+
+        // Initialize Google Sign-In
         function initGoogleSignIn() {
             google.accounts.id.initialize({
                 client_id: CONFIG.GOOGLE_CLIENT_ID,
-                callback: handleCredentialResponse,
-                auto_select: false,
-                cancel_on_tap_outside: true
+                callback: handleCredentialResponse
             });
-
-            renderSignInButton();
-        }
-
-        function renderSignInButton() {
-            const userSection = document.getElementById('userSection');
             
-            if (currentUser) {
-                userSection.innerHTML = `
-                    <div class="user-info">
-                        <img src="${currentUser.picture}" alt="${currentUser.name}" class="user-avatar">
-                        <span class="user-name">${currentUser.name.split(' ')[0]}</span>
-                    </div>
-                    <button class="btn btn-primary" onclick="openModal()">+ Contribute</button>
-                    <button class="btn btn-ghost" onclick="signOut()">Sign Out</button>
-                `;
-            } else {
-                userSection.innerHTML = `<div id="googleSignInBtn"></div>`;
-                google.accounts.id.renderButton(
-                    document.getElementById('googleSignInBtn'),
-                    { 
-                        theme: 'filled_black', 
-                        size: 'medium',
-                        shape: 'pill',
-                        text: 'signin_with'
-                    }
-                );
-            }
+            google.accounts.id.renderButton(
+                document.getElementById('googleSignIn'),
+                { theme: 'filled_black', size: 'medium', shape: 'pill' }
+            );
         }
 
+        // Handle Google Sign-In response
         function handleCredentialResponse(response) {
-            const payload = JSON.parse(atob(response.credential.split('.')[1]));
+            const payload = parseJwt(response.credential);
             currentUser = {
-                email: payload.email,
                 name: payload.name,
+                email: payload.email,
                 picture: payload.picture
             };
-            localStorage.setItem('aikipedia_user', JSON.stringify(currentUser));
-            renderSignInButton();
-            showToast('Welcome back, ' + currentUser.name.split(' ')[0] + '!', 'success');
+            updateUserUI();
         }
 
+        // Parse JWT token
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => 
+                '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+            ).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        // Sign out
         function signOut() {
             currentUser = null;
-            localStorage.removeItem('aikipedia_user');
             google.accounts.id.disableAutoSelect();
-            renderSignInButton();
-            showToast('Signed out successfully', 'success');
+            updateUserUI();
         }
 
-        // ============================================================================
-        // FETCH CARDS FROM GOOGLE SHEETS
-        // ============================================================================
-        async function fetchCards() {
-            try {
-                const sheetUrl = `https://docs.google.com/spreadsheets/d/${CONFIG.GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json`;
-                // Use CORS proxy for localhost, direct URL for production
-                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-                const url = isLocalhost 
-                    ? `https://api.allorigins.win/raw?url=${encodeURIComponent(sheetUrl)}`
-                    : sheetUrl;
-                console.log('Fetching from:', url);
-                
-                const response = await fetch(url);
-                console.log('Response status:', response.status);
-                
-                const text = await response.text();
-                console.log('Raw response (first 500 chars):', text.substring(0, 500));
-                
-                // Parse the JSONP response
-                const jsonStart = text.indexOf('{');
-                const jsonEnd = text.lastIndexOf('}') + 1;
-                console.log('JSON start:', jsonStart, 'JSON end:', jsonEnd);
-                
-                const json = JSON.parse(text.slice(jsonStart, jsonEnd));
-                console.log('Parsed JSON:', json);
-                
-                if (!json.table || !json.table.rows) {
-                    console.log('No table or rows found');
-                    cards = [];
-                    renderCategoryFilters();
-                    filterCards('all');
-                    updateStats();
-                    return;
-                }
+        // Update UI based on user state
+        function updateUserUI() {
+            const userInfo = document.getElementById('userInfo');
+            const googleSignIn = document.getElementById('googleSignIn');
+            const loginPrompt = document.getElementById('loginPrompt');
+            const contributeForm = document.getElementById('contributeForm');
 
-                console.log('Number of rows:', json.table.rows.length);
-
-                // Map rows to card objects (skip header row)
-                cards = json.table.rows.slice(1).map((row, idx) => {
-                    const cols = row.c || [];
-                    const status = cols[7]?.v || '';
-                    
-                    console.log(`Row ${idx}: status="${status}", question="${cols[2]?.v}"`);
-                    
-                    // Only include approved cards
-                    if (status.toLowerCase() !== 'approved') return null;
-                    
-                    const category = cols[1]?.v || 'General';
-                    categories.add(category);
-                    
-                    return {
-                        id: cols[0]?.v || `card_${idx}`,
-                        category: category,
-                        question: cols[2]?.v || '',
-                        answer: cols[3]?.v || '',
-                        contributor: cols[4]?.v || 'Anonymous',
-                        status: status
-                    };
-                }).filter(card => card !== null && card.question);
-
-                console.log('Approved cards found:', cards.length);
-                
-                renderCategoryFilters();
-                filterCards('all');
-                updateStats();
-            } catch (error) {
-                console.error('Error fetching cards:', error);
-                console.error('Error details:', error.message);
-                showToast('Failed to load cards. Please refresh.', 'error');
-                document.getElementById('cardArea').innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">⚠️</div>
-                        <h3 class="empty-title">Failed to Load Cards</h3>
-                        <p class="empty-text">Error: ${error.message}</p>
-                    </div>
-                `;
+            if (currentUser) {
+                userInfo.style.display = 'flex';
+                googleSignIn.style.display = 'none';
+                document.getElementById('userAvatar').src = currentUser.picture;
+                document.getElementById('userName').textContent = currentUser.name;
+                loginPrompt.style.display = 'none';
+                contributeForm.style.display = 'flex';
+            } else {
+                userInfo.style.display = 'none';
+                googleSignIn.style.display = 'block';
+                loginPrompt.style.display = 'block';
+                contributeForm.style.display = 'none';
             }
         }
 
-        // ============================================================================
-        // RENDER FUNCTIONS
-        // ============================================================================
-        function renderCategoryFilters() {
-            const container = document.getElementById('categoryFilters');
-            container.innerHTML = '';
-            
-            const allBtn = document.createElement('button');
-            allBtn.className = 'category-btn active';
-            allBtn.dataset.category = 'all';
-            allBtn.textContent = 'All';
-            allBtn.onclick = () => filterCards('all');
-            container.appendChild(allBtn);
-            
-            categories.forEach(cat => {
-                if (cat === 'all') return;
-                const btn = document.createElement('button');
-                btn.className = 'category-btn';
-                btn.dataset.category = cat;
-                btn.textContent = cat;
-                btn.onclick = () => filterCards(cat);
-                container.appendChild(btn);
-            });
-        }
-
-        function filterCards(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.category === category);
-            });
-            
-            filteredCards = category === 'all' 
-                ? [...cards] 
-                : cards.filter(c => c.category === category);
-            
-            currentIndex = 0;
-            isFlipped = false;
-            renderCard();
-        }
-
-        function renderCard() {
-            const container = document.getElementById('cardArea');
-            
-            if (filteredCards.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📚</div>
-                        <h3 class="empty-title">No Cards Yet</h3>
-                        <p class="empty-text">Be the first to contribute a flashcard!</p>
-                        ${currentUser ? `<button class="btn btn-primary" onclick="openModal()">+ Add Card</button>` : ''}
-                    </div>
-                `;
+        // Fetch cards from Google Sheets via Apps Script
+        async function fetchCards() {
+            // Check if Apps Script URL is configured
+            if (!CONFIG.APPS_SCRIPT_URL) {
+                console.log('No Apps Script URL configured, using starter cards');
+                loadStarterCards();
                 return;
             }
 
-            const card = filteredCards[currentIndex];
-            const cardProgress = progress[card.id] || { views: 0, confidence: null };
-            
-            container.innerHTML = `
-                <div class="flashcard-container">
-                    <div class="flashcard-wrapper">
-                        <div class="flashcard ${isFlipped ? 'flipped' : ''}" onclick="flipCard()">
-                            <div class="flashcard-face flashcard-front">
-                                <div class="card-category">${card.category}</div>
-                                <div class="card-label">Question</div>
-                                <div class="card-content">${card.question}</div>
-                                <div class="card-footer">
-                                    <span class="card-hint">Click to reveal answer</span>
-                                    <span class="card-number">${currentIndex + 1} / ${filteredCards.length}</span>
-                                </div>
-                            </div>
-                            <div class="flashcard-face flashcard-back">
-                                <div class="card-category">${card.category}</div>
-                                <div class="card-label">Answer</div>
-                                <div class="card-content">${card.answer}</div>
-                                <div class="card-footer">
-                                    <span class="card-hint">By ${card.contributor}</span>
-                                    <span class="card-number">${currentIndex + 1} / ${filteredCards.length}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="nav-controls">
-                        <button class="nav-btn" onclick="prevCard()" ${currentIndex === 0 ? 'disabled' : ''}>←</button>
-                        <span class="progress-indicator">${currentIndex + 1} / ${filteredCards.length}</span>
-                        <button class="nav-btn" onclick="nextCard()" ${currentIndex === filteredCards.length - 1 ? 'disabled' : ''}>→</button>
-                    </div>
-                    
-                    ${isFlipped ? `
-                        <div class="confidence-btns">
-                            <button class="confidence-btn hard" onclick="rateCard('hard')">😓 Hard</button>
-                            <button class="confidence-btn medium" onclick="rateCard('medium')">🤔 Medium</button>
-                            <button class="confidence-btn easy" onclick="rateCard('easy')">😎 Easy</button>
-                        </div>
-                    ` : ''}
-                </div>
-            `;
+            try {
+                const response = await fetch(CONFIG.APPS_SCRIPT_URL + '?action=getCards');
+                const data = await response.json();
+                
+                if (data.success && data.cards.length > 0) {
+                    cards = data.cards;
+                } else {
+                    loadStarterCards();
+                }
+            } catch (error) {
+                console.error('Error fetching cards:', error);
+                loadStarterCards();
+            }
 
-            // Track view
-            if (!cardProgress.views) {
-                cardProgress.views = 1;
-                progress[card.id] = cardProgress;
-                saveProgress();
-                updateStats();
+            initializeCards();
+        }
+
+        // Starter cards for demo/offline mode
+        function loadStarterCards() {
+            cards = [
+                { id: 1, category: "ML Fundamentals", question: "What is the difference between supervised and unsupervised learning?", answer: "Supervised learning uses labeled data to train models that predict outputs for new inputs. Unsupervised learning finds patterns in unlabeled data without predefined outputs, like clustering or dimensionality reduction." },
+                { id: 2, category: "ML Fundamentals", question: "Explain the bias-variance tradeoff.", answer: "Bias is error from oversimplified assumptions (underfitting). Variance is error from sensitivity to training data fluctuations (overfitting). The tradeoff: reducing one typically increases the other. Optimal models balance both for good generalization." },
+                { id: 3, category: "Deep Learning", question: "What is backpropagation?", answer: "Backpropagation computes gradients of the loss function with respect to each weight by applying the chain rule, propagating errors backward through the network. These gradients guide weight updates during training via gradient descent." },
+                { id: 4, category: "Transformers & Attention", question: "What is self-attention and why is it important?", answer: "Self-attention allows each position in a sequence to attend to all positions, computing weighted sums based on relevance. It captures long-range dependencies without recurrence, enabling parallelization and better modeling of context." },
+                { id: 5, category: "LLMs & GenAI", question: "What is RAG (Retrieval-Augmented Generation)?", answer: "RAG combines retrieval systems with generative models. It first retrieves relevant documents from a knowledge base, then conditions the LLM's generation on this context. This reduces hallucinations and allows access to up-to-date or private information." },
+                { id: 6, category: "AI Agents", question: "What is the ReAct pattern for AI agents?", answer: "ReAct (Reasoning + Acting) interleaves reasoning traces with actions. The agent thinks step-by-step about what to do, executes an action, observes the result, then reasons about the next step. This improves planning and reduces errors in complex tasks." }
+            ];
+        }
+
+        // Initialize cards display
+        function initializeCards() {
+            document.getElementById('loadingState').style.display = 'none';
+            
+            // Populate categories
+            const categories = [...new Set(cards.map(c => c.category))];
+            const select = document.getElementById('categoryFilter');
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                select.appendChild(option);
+            });
+
+            filteredCards = [...cards];
+            loadProgress();
+            
+            if (filteredCards.length > 0) {
+                document.getElementById('cardSection').style.display = 'block';
+                displayCard();
+            } else {
+                document.getElementById('emptyState').style.display = 'block';
             }
         }
 
+        // Display current card
+        function displayCard() {
+            if (filteredCards.length === 0) return;
+            
+            const card = filteredCards[currentIndex];
+            document.getElementById('cardCategory').textContent = card.category;
+            document.getElementById('cardCategoryBack').textContent = card.category;
+            document.getElementById('cardQuestion').textContent = card.question;
+            document.getElementById('cardAnswer').textContent = card.answer;
+            
+            // Reset flip state
+            isFlipped = false;
+            document.getElementById('flashcard').classList.remove('flipped');
+            
+            // Update navigation
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === filteredCards.length - 1;
+            
+            // Update progress
+            updateProgress();
+            
+            // Mark as studied
+            studiedToday.add(card.id);
+            saveProgress();
+            updateStats();
+        }
+
+        // Flip card
         function flipCard() {
             isFlipped = !isFlipped;
-            renderCard();
+            document.getElementById('flashcard').classList.toggle('flipped');
+        }
+
+        // Navigation
+        function prevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayCard();
+            }
         }
 
         function nextCard() {
             if (currentIndex < filteredCards.length - 1) {
                 currentIndex++;
-                isFlipped = false;
-                renderCard();
+                displayCard();
             }
         }
 
-        function prevCard() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                isFlipped = false;
-                renderCard();
-            }
-        }
-
-        function rateCard(confidence) {
+        // Mark as mastered
+        function markMastered() {
+            if (filteredCards.length === 0) return;
             const card = filteredCards[currentIndex];
-            progress[card.id] = {
-                ...progress[card.id],
-                confidence: confidence,
-                lastReviewed: new Date().toISOString()
-            };
+            masteredCards.add(card.id);
             saveProgress();
             updateStats();
+            nextCard();
+        }
+
+        // Filter by category
+        function filterByCategory() {
+            const category = document.getElementById('categoryFilter').value;
+            filteredCards = category === 'all' 
+                ? [...cards] 
+                : cards.filter(c => c.category === category);
             
-            // Auto-advance after rating
-            if (currentIndex < filteredCards.length - 1) {
-                setTimeout(nextCard, 300);
+            currentIndex = 0;
+            
+            if (filteredCards.length > 0) {
+                document.getElementById('cardSection').style.display = 'block';
+                document.getElementById('emptyState').style.display = 'none';
+                displayCard();
+            } else {
+                document.getElementById('cardSection').style.display = 'none';
+                document.getElementById('emptyState').style.display = 'block';
             }
         }
 
-        function saveProgress() {
-            localStorage.setItem('aikipedia_progress', JSON.stringify(progress));
+        // Shuffle cards
+        function shuffleCards() {
+            for (let i = filteredCards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+            }
+            currentIndex = 0;
+            displayCard();
         }
 
+        // Reset progress
+        function resetProgress() {
+            if (confirm('Reset all progress? This will clear your studied and mastered cards.')) {
+                studiedToday.clear();
+                masteredCards.clear();
+                saveProgress();
+                updateStats();
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentIndex + 1) / filteredCards.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = 
+                `Card ${currentIndex + 1} of ${filteredCards.length}`;
+        }
+
+        // Update stats
         function updateStats() {
             document.getElementById('totalCards').textContent = cards.length;
-            
-            const studied = Object.keys(progress).filter(id => progress[id].views > 0).length;
-            document.getElementById('studiedCards').textContent = studied;
-            
-            const mastered = Object.keys(progress).filter(id => progress[id].confidence === 'easy').length;
-            document.getElementById('masteredCards').textContent = mastered;
+            document.getElementById('studiedCards').textContent = studiedToday.size;
+            document.getElementById('masteredCards').textContent = masteredCards.size;
         }
 
-        // ============================================================================
-        // CONTRIBUTE FORM
-        // ============================================================================
-        function openModal() {
+        // Submit new card
+        async function submitCard(event) {
+            event.preventDefault();
+            
             if (!currentUser) {
-                showToast('Please sign in to contribute', 'error');
+                alert('Please sign in to submit cards.');
                 return;
             }
-            document.getElementById('contributeModal').classList.add('active');
-        }
 
-        function closeModal() {
-            document.getElementById('contributeModal').classList.remove('active');
-            document.getElementById('contributeForm').reset();
-        }
+            if (!CONFIG.APPS_SCRIPT_URL) {
+                showSubmitStatus('error', 'Backend not configured. Please add your Apps Script URL.');
+                return;
+            }
 
-        document.getElementById('contributeForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            
             const cardData = {
-                category: document.getElementById('formCategory').value,
-                question: document.getElementById('formQuestion').value,
-                answer: document.getElementById('formAnswer').value,
-                contributor: currentUser.name,
-                contributorEmail: currentUser.email
+                action: 'submitCard',
+                category: document.getElementById('newCategory').value,
+                question: document.getElementById('newQuestion').value,
+                answer: document.getElementById('newAnswer').value,
+                submittedBy: currentUser.email
             };
-            
+
             try {
                 const response = await fetch(CONFIG.APPS_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(cardData)
                 });
-                
-                showToast('Card submitted for review!', 'success');
-                closeModal();
-            } catch (error) {
-                console.error('Submit error:', error);
-                showToast('Failed to submit. Please try again.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit for Review';
-            }
-        });
 
-        // ============================================================================
-        // TOAST NOTIFICATIONS
-        // ============================================================================
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `
-                <span>${type === 'success' ? '✓' : '⚠'}</span>
-                <span>${message}</span>
-            `;
-            container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
+                showSubmitStatus('success', 'Card submitted for review! Thank you for contributing.');
+                document.getElementById('contributeForm').reset();
+            } catch (error) {
+                console.error('Error submitting card:', error);
+                showSubmitStatus('error', 'Failed to submit card. Please try again.');
+            }
         }
 
-        // ============================================================================
-        // KEYBOARD NAVIGATION
-        // ============================================================================
-        document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        // Show submit status
+        function showSubmitStatus(type, message) {
+            const status = document.getElementById('submitStatus');
+            status.className = 'submit-status ' + type;
+            status.textContent = message;
             
-            switch (e.key) {
-                case ' ':
-                case 'Enter':
-                    e.preventDefault();
-                    flipCard();
-                    break;
-                case 'ArrowLeft':
-                    prevCard();
-                    break;
-                case 'ArrowRight':
-                    nextCard();
-                    break;
-                case '1':
-                    if (isFlipped) rateCard('hard');
-                    break;
-                case '2':
-                    if (isFlipped) rateCard('medium');
-                    break;
-                case '3':
-                    if (isFlipped) rateCard('easy');
-                    break;
-                case 'Escape':
-                    closeModal();
-                    break;
-            }
-        });
+            setTimeout(() => {
+                status.className = 'submit-status';
+            }, 5000);
+        }
 
-        // ============================================================================
-        // INITIALIZE
-        // ============================================================================
+        // Initialize on load
         window.onload = function() {
-            // Check for saved user
-            const savedUser = localStorage.getItem('aikipedia_user');
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-            }
-            
-            // Initialize Google Sign-In (only if loaded)
-            if (typeof google !== 'undefined' && google.accounts) {
-                initGoogleSignIn();
-            } else {
-                console.log('Google Sign-In not available - continuing without auth');
-                document.getElementById('userSection').innerHTML = '<span style="color: var(--text-muted); font-size: 0.8rem;">Sign-in unavailable locally</span>';
-            }
-            
-            // Fetch cards
+            initGoogleSignIn();
             fetchCards();
         };
     </script>
