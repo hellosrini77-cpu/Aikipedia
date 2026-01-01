@@ -458,6 +458,7 @@
             <div id="userInfo" class="user-info" style="display: none;">
                 <img id="userAvatar" class="user-avatar" src="" alt="User">
                 <span id="userName" class="user-name"></span>
+                <button onclick="scrollToContribute()" class="btn btn-primary">📝 Contribute</button>
                 <button onclick="signOut()" class="btn btn-secondary">Sign Out</button>
             </div>
             <div id="googleSignIn"></div>
@@ -650,6 +651,13 @@
             currentUser = null;
             google.accounts.id.disableAutoSelect();
             updateUserUI();
+        }
+
+        // Scroll to contribute section
+        function scrollToContribute() {
+            document.querySelector('.contribute-section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
         }
 
         // Update UI based on user state
